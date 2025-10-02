@@ -13,7 +13,7 @@ export default function PageBar() {
 
   return (
     <div className="h-8 w-full bg-green-700 text-white border-b border-green-800">
-      <div className="h-full px-4 flex items-center text-sm font-medium">
+      <div className="h-full px-4 flex items-center text-sm font-medium font-display">
         {title}
       </div>
     </div>

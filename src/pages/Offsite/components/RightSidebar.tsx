@@ -6,7 +6,7 @@ export default function RightSidebar() {
 
   return (
     <div className="border border-gray-300 rounded p-4 space-y-4">
-      <h3 className="font-medium text-gray-900">ลำดับขั้นตอนการอนุมัติ</h3>
+      <h3 className="font-medium text-gray-900 font-display">ลำดับขั้นตอนการอนุมัติ</h3>
       <div className="space-y-3">
         {approvers.map((a, i) => (
           <div key={i} className="flex items-center gap-3 relative">
@@ -19,14 +19,14 @@ export default function RightSidebar() {
             <div className="flex-1 min-w-0 mb-2">
               <div
                 className={`text-sm truncate ${
-                  i === 0 ? "font-bold text-black" : "text-gray-500"
+                  i === 0 ? "font-bold  font-display text-black" : " font-display text-gray-500"
                 }`}
               >
                 {a.step}
               </div>
               <div
                 className={`text-sm truncate mt-1 ${
-                  i === 0 ? "text-black" : "text-gray-500"
+                  i === 0 ? "text-black  font-display" : " font-display text-gray-500"
                 }`}
               >
                 {a.person}

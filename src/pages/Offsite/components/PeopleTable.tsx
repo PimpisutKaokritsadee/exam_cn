@@ -38,11 +38,11 @@ export default function PeopleTable() {
     <div>
       {/* หัวข้อ + ปุ่มเพิ่ม */}
       <div className="flex items-center justify-between mb-3">
-        <h3 className="font-extrabold text-lg">ผู้ปฏิบัติงาน</h3>
+        <h3 className="font-bold text-lg  font-display">ผู้ปฏิบัติงาน</h3>
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="inline-flex items-center gap-2 h-10 px-4 rounded-sm
+          className="inline-flex items-center gap-4 h-10 px-5 rounded-sm font-display
                      bg-indigo-800 text-white hover:bg-indigo-700 shadow-sm"
         >
           <Plus size={18} />
@@ -55,33 +55,33 @@ export default function PeopleTable() {
         <table className="w-full text-sm border-2 border-gray-200 border-collapse">
           <thead>
             <tr>
-              <th className="px-4 py-2 text-left font-light border-2 border-gray-200 w-20">ลำดับ</th>
-              <th className="px-4 py-2 text-left font-light border-2 border-gray-200">ชื่อ - นามสกุล</th>
-              <th className="px-4 py-2 text-left font-light border-2 border-gray-200">ตำแหน่ง</th>
-              <th className="px-4 py-2 text-left font-light border-2 border-gray-200">ระดับตำแหน่ง</th>
-              <th className="px-4 py-2 text-left font-light border-2 border-gray-200">ประเภทตำแหน่ง</th>
-              <th className="px-4 py-2 text-left font-light border-2 border-gray-200">ประเภทบุคลากร</th>
-              <th className="px-4 py-2 text-center font-light border-2 border-gray-200 w-24">เครื่องมือ</th>
+              <th className="px-4 py-2 text-left font-medium font-display border-2 border-gray-200 w-20">ลำดับ</th>
+              <th className="px-4 py-2 text-left font-medium font-display border-2 border-gray-200">ชื่อ - นามสกุล</th>
+              <th className="px-4 py-2 text-left font-medium font-display border-2 border-gray-200">ตำแหน่ง</th>
+              <th className="px-4 py-2 text-left font-medium font-display border-2 border-gray-200">ระดับตำแหน่ง</th>
+              <th className="px-4 py-2 text-left font-medium font-display border-2 border-gray-200">ประเภทตำแหน่ง</th>
+              <th className="px-4 py-2 text-left font-medium font-display border-2 border-gray-200">ประเภทบุคลากร</th>
+              <th className="px-4 py-2 text-center font-medium font-display border-2 border-gray-200 w-24">เครื่องมือ</th>
             </tr>
           </thead>
           <tbody>
             {people.length === 0 ? (
               <tr>
-                <td colSpan={7} className="px-4 py-2 text-center text-gray-500 border-2 border-gray-200">
-                  — ไม่พบข้อมูล —
+                <td colSpan={7} className="px-4 py-2 text-center font-display text-gray-500 border-2 border-gray-200">
+                  -- ไม่พบข้อมูล --
                 </td>
               </tr>
             ) : (
               people.map((p, idx) => (
                 <tr key={p.id}>
-                  <td className="px-4 py-2 border-2 border-gray-200 text-center">{idx + 1}</td>
-                  <td className="px-4 py-2 border-2 border-gray-200">{p.name}</td>
-                  <td className="px-4 py-2 border-2 border-gray-200">{p.role}</td>
-                  <td className="px-4 py-2 border-2 border-gray-200">{p.level || "—"}</td>
-                  <td className="px-4 py-2 border-2 border-gray-200">{p.positionType || "—"}</td>
-                  <td className="px-4 py-2 border-2 border-gray-200">{p.personnelType || "—"}</td>
-                  <td className="px-2 py-2 border-2 border-gray-200">
-                    <div className="flex justify-center gap-3 text-gray-600">
+                  <td className="px-4 py-2 border-2 font-display border-gray-200 text-center">{idx + 1}</td>
+                  <td className="px-4 py-2 border-2 font-display border-gray-200">{p.name}</td>
+                  <td className="px-4 py-2 border-2 font-display border-gray-200">{p.role}</td>
+                  <td className="px-4 py-2 border-2 font-display border-gray-200">{p.level || "—"}</td>
+                  <td className="px-4 py-2 border-2 font-display border-gray-200">{p.positionType || "—"}</td>
+                  <td className="px-4 py-2 border-2 font-display border-gray-200">{p.personnelType || "—"}</td>
+                  <td className="px-2 py-2 border-2 font-display border-gray-200">
+                    <div className="flex justify-center gap-3 font-display text-gray-600">
                       <button className="hover:text-emerald-700" aria-label="preview">
                         <Search size={18} />
                       </button>

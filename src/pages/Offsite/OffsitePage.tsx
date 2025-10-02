@@ -8,7 +8,7 @@ export default function OffsitePage() {
         <div className="space-y-4">
             <Breadcrumb />
 
-            <h1 className="text-lg font-semibold text-gray-900">
+            <h1 className="text-lg font-semibold text-gray-900 font-display">
                 บันทึกการปฏิบัติการนอกสถานที่
             </h1>
 

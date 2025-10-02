@@ -14,7 +14,7 @@ function ShiftRadio({ name, value, onChange, className }: ShiftRadioProps) {
       {opts.map((o) => (
         <label
           key={o}
-          className="inline-flex items-center gap-3 cursor-pointer select-none py-1"
+          className="inline-flex font-display items-center gap-3 cursor-pointer select-none py-1"
         >
           {/* input ซ่อน แต่ยังโฟกัส/กดคีย์บอร์ดได้ */}
           <input
@@ -86,7 +86,7 @@ export default function DateShiftFields({
     <div className={`grid grid-cols-1 gap-6 ${className ?? ""}`}>
       {/* เริ่มต้น */}
       <div className="flex flex-col gap-2">
-        <label htmlFor={startId} className="text-sm text-gray-700">
+        <label htmlFor={startId} className="text-sm font-display text-gray-700">
           วันที่เริ่มต้นปฏิบัติงานนอกสถานที่ <span className="text-red-600">*</span>
         </label>
 
@@ -95,7 +95,7 @@ export default function DateShiftFields({
             id={startId}
             type="date"
             className="h-9 w-[240px] rounded border border-gray-300 px-3 text-sm
-                       placeholder:text-gray-400 outline-none focus:ring-2
+                       placeholder:text-gray-400 outline-none focus:ring-2  font-display
                        focus:ring-emerald-600/30 focus:border-emerald-600"
             value={dateStart}
             onChange={(e) => onChangeDateStart(e.target.value)}
@@ -106,7 +106,7 @@ export default function DateShiftFields({
 
       {/* สิ้นสุด */}
       <div className="flex flex-col gap-2">
-        <label htmlFor={endId} className="text-sm text-gray-700">
+        <label htmlFor={endId} className="text-sm font-display text-gray-700">
           วันที่สิ้นสุดปฏิบัติงานนอกสถานที่ <span className="text-red-600">*</span>
         </label>
 
@@ -115,7 +115,7 @@ export default function DateShiftFields({
             id={endId}
             type="date"
             className="h-9 w-[240px] rounded border border-gray-300 px-3 text-sm
-                       placeholder:text-gray-400 outline-none focus:ring-2
+                       placeholder:text-gray-400 outline-none focus:ring-2 font-display
                        focus:ring-emerald-600/30 focus:border-emerald-600"
             value={dateEnd}
             onChange={(e) => onChangeDateEnd(e.target.value)}

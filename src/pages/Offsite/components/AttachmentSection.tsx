@@ -117,12 +117,12 @@ export default function AttachmentSection({
 
   return (
     <section className={`space-y-3 ${className ?? ""}`}>
-      <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
-      <p className="text-sm text-gray-600">{supportText}</p>
+      <h3 className="text-lg font-bold font-display text-gray-900">{title}</h3>
+      <p className="text-sm font-display text-gray-600">{supportText}</p>
 
       {/* กล่องอัปโหลด */}
       <div
-        className="rounded-md border-2 border-dashed border-emerald-300 bg-emerald-50 cursor-pointer"
+        className="rounded-md font-display border-2 border-dashed border-emerald-300 bg-emerald-50 cursor-pointer"
         onClick={handleBrowse}
         onDragOver={(e) => {
           e.preventDefault();
@@ -151,21 +151,21 @@ export default function AttachmentSection({
 
       {/* ตารางรายการไฟล์ */}
       <div className="overflow-x-auto">
-        <table className="min-w-full table-fixed border border-gray-200 ">
+        <table className="min-w-full table-fixed border font-display border-gray-200 ">
           <thead>
             <tr className="bg-gray-50">
-              <th className="px-4 py-2 text-left font-light border-2 border-gray-200 w-20">ลำดับ</th>
-              <th className="px-4 py-2 text-left font-light border-2 border-gray-200 w-[32%]">เอกสาร</th>
-              <th className="px-4 py-2 text-left font-light border-2 border-gray-200 w-[30%]">ชื่อเอกสาร</th>
-              <th className="px-4 py-2 text-left font-light border-2 border-gray-200 w-[20%]">วันที่อัปโหลดเอกสาร</th>
-              <th className="px-4 py-2 text-center font-light border-2 border-gray-200 w-20">เครื่องมือ</th>
+              <th className="px-4 py-2 text-left font-medium border-2 border-gray-200 w-20">ลำดับ</th>
+              <th className="px-4 py-2 text-left font-medium border-2 border-gray-200 w-[32%]">เอกสาร</th>
+              <th className="px-4 py-2 text-left font-medium border-2 border-gray-200 w-[30%]">ชื่อเอกสาร</th>
+              <th className="px-4 py-2 text-left font-medium border-2 border-gray-200 w-[20%]">วันที่อัปโหลดเอกสาร</th>
+              <th className="px-4 py-2 text-center font-medium border-2 border-gray-200 w-20">เครื่องมือ</th>
             </tr>
           </thead>
           <tbody>
             {rows.length === 0 ? (
               <tr>
                 <td colSpan={5} className="px-4 py-2 text-center text-gray-500 border-2 border-gray-200">
-                  ยังไม่มีไฟล์แนบ
+                  -- ยังไม่มีไฟล์แนบ --
                 </td>
               </tr>
             ) : (
@@ -208,8 +208,8 @@ export default function AttachmentSection({
 
       {/* เหตุผลการไม่อนุมัติ */}
       <div className="pt-4">
-        <div className="rounded-md border-2 border-dashed border-gray-400">
-          <div className="text-lg font-semibold text-gray-900">เหตุผลการไม่อนุมัติ</div>
+        <div className="rounded-md font-display border-2 border-dashed border-gray-400">
+          <div className="text-lg font-semibold font-display text-gray-900">เหตุผลการไม่อนุมัติ</div>
           <p className="p-4">แก้ไขเอกสารแบบให้สมบูรณ์</p>
         </div>
       </div>

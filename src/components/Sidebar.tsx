@@ -82,7 +82,7 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
         <nav className="py-3 px-2">
           {MENU.map((sec) => {
             const rowBase =
-              "group relative w-full px-3 py-2 text-sm flex items-center gap-2 text-gray-200 hover:text-yellow-300";
+              "group relative w-full px-3 py-2 text-sm flex items-center gap-2 text-gray-200 hover:text-amber-200";
 
             // ── เมนูเดี่ยว ─────────────────────────────────────────────────────
             if ("to" in sec) {
@@ -90,12 +90,12 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
               return (
                 <div key={sec.id} className="my-0.5">
                   <NavLink to={sec.to} end className={rowBase}>
-                    <span className="text-yellow-400 shrink-0">{sec.icon}</span>
+                    <span className="text-amber-200 shrink-0">{sec.icon}</span>
                     {!collapsed && (
                       <span
                         className={cx(
-                          "flex-1 text-left break-words whitespace-normal leading-6 transition-colors",
-                          active && "text-yellow-300"
+                          "flex-1 text-left break-words whitespace-normal leading-6 transition-colors font-display",
+                          active && "text-amber-200"
                         )}
                       >
                         {sec.label}
@@ -124,14 +124,14 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
                   className={rowBase}
                   onClick={() => !collapsed && toggle(sec.id)} // ถ้าหุบ ไม่ต้อง toggle (ใช้ flyout แทน)
                 >
-                  <span className="text-yellow-400 shrink-0">{sec.icon}</span>
+                  <span className="text-amber-200 shrink-0">{sec.icon}</span>
 
                   {!collapsed && (
                     <>
                       <span
                         className={cx(
-                          "flex-1 text-left break-words whitespace-normal leading-6 transition-colors",
-                          computedOpen && "text-yellow-300"
+                          "flex-1 text-left break-words  font-display whitespace-normal leading-6 transition-colors",
+                          computedOpen && "text-amber-200"
                         )}
                       >
                         {sec.label}
@@ -170,9 +170,9 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
                             <NavLink
                               key={item.to}
                               to={item.to}
-                              className="flex items-center gap-2 px-4 py-2 text-sm text-gray-200 hover:text-yellow-300"
+                              className="flex items-center gap-2 px-4 py-2 text-sm text-gray-200 hover:text-amber-200"
                             >
-                              <span className={cx("flex-1", activeChild && "text-yellow-300")}>
+                              <span className={cx("flex-1", activeChild && "text-amber-200")}>
                                 {item.label}
                               </span>
                               <ChevronRight size={18} className="opacity-70" />
@@ -197,9 +197,9 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
                           <NavLink
                             key={item.to}
                             to={item.to}
-                            className="group flex items-center min-w-0 pl-10 pr-3 py-2 text-sm text-gray-200 w-full hover:text-yellow-300"
+                            className="group flex items-center min-w-0 pl-10 pr-3 py-2 text-sm text-gray-200 w-full hover:text-amber-200"
                           >
-                            <span className={cx("flex-1 break-words", activeChild && "text-yellow-300")}>
+                            <span className={cx("flex-1 break-words  font-display", activeChild && "text-amber-200")}>
                               {item.label}
                             </span>
                             <ChevronRight size={20} className="opacity-70 shrink-0" />

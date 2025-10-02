@@ -83,7 +83,7 @@ export default function WorkplaceLocation() {
         <div className="space-y-4">
             {/* แผนที่ + แถบค้นหา */}
             <div className="space-y-2">
-                <div className="text-sm text-gray-700 font-extrabold">สถานที่ปฏิบัติงาน</div>
+                <div className="text-sm text-gray-700 font-bold font-display">สถานที่ปฏิบัติงาน</div>
 
                 <div className="border rounded relative overflow-hidden">
                     {/* แผนที่จริง */}
@@ -118,7 +118,7 @@ export default function WorkplaceLocation() {
                         <div className="flex items-center gap-3 bg-white border rounded-full h-12 px-4 shadow-lg pointer-events-auto">
                            <MapPin size={18} className="text-gray-500" />
                         <input
-                            className="flex-1 outline-none text-sm"
+                            className="flex-1 outline-none text-sm font-display"
                             placeholder="ค้นหาสถานที่"
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
@@ -141,9 +141,9 @@ export default function WorkplaceLocation() {
             {/* องค์กร/สถานที่ (คงโครงจากของเดิม) */}
             <div className="grid grid-cols-1 gap-4">
                 <label className="flex flex-col gap-1">
-                    <span className="text-sm text-gray-700 font-extrabold">ลิงก์สถานที่</span>
+                    <span className="text-sm text-gray-700 font-bold font-display">ลิงก์สถานที่</span>
                     <input
-                        className="h-9 w-full rounded border border-gray-300 px-3 text-sm placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-emerald-600/30 focus:border-emerald-600"
+                        className="h-9 w-full rounded font-display border border-gray-300 px-3 text-sm placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-emerald-600/30 focus:border-emerald-600"
                         value={org}
                         onChange={(e) => setOrg(e.target.value)}
                         placeholder="โปรดระบุ"
@@ -151,9 +151,9 @@ export default function WorkplaceLocation() {
                 </label>
 
                 <label className="flex flex-col gap-1">
-                    <span className="text-sm text-gray-700 font-extrabold">สถานที่</span>
+                    <span className="text-sm text-gray-700 font-bold  font-display">สถานที่</span>
                     <input
-                        className="h-9 w-full rounded border border-gray-300 px-3 text-sm placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-emerald-600/30 focus:border-emerald-600"
+                        className="h-9 w-full rounded font-display border border-gray-300 px-3 text-sm placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-emerald-600/30 focus:border-emerald-600"
                         value={place}
                         onChange={(e) => setPlace(e.target.value)}
                         placeholder="โปรดระบุ"
