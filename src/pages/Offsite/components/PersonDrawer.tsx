@@ -81,7 +81,7 @@ export default function PersonDrawer({ open, onClose, onSave }: Props) {
 
       {/* drawer */}
       <div
-        className="fixed inset-y-0 right-0 z-[61] w-full max-w-[520px] bg-white shadow-xl
+        className="fixed inset-y-0 right-0 z-[61] w-full max-w-[370px] bg-white shadow-xl
                    transform transition-transform duration-300 translate-x-0"
         role="dialog"
         aria-modal="true"

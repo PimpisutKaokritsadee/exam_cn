@@ -1,13 +1,16 @@
+import { useEffect } from "react";
+
 type ShiftRadioProps = {
   name: string;
   value: string;
   onChange: (v: string) => void;
   className?: string;
+  options?: readonly string[]; // <- เพิ่ม ให้กำหนดชุดตัวเลือกได้
 };
 
 /** ปุ่มวิทยุแบบ custom: ใหญ่ คลิกง่าย ตรงสไตล์ตัวอย่าง */
-function ShiftRadio({ name, value, onChange, className }: ShiftRadioProps) {
-  const opts = ["ตลอดวัน", "ครึ่งเช้า", "ครึ่งบ่าย"] as const;
+function ShiftRadio({ name, value, onChange, className, options }: ShiftRadioProps) {
+  const opts = options ?? (["ตลอดวัน", "ครึ่งเช้า", "ครึ่งบ่าย"] as const);
 
   return (
     <div className={`flex flex-wrap gap-x-8 gap-y-2 ${className ?? ""}`}>
@@ -29,18 +32,12 @@ function ShiftRadio({ name, value, onChange, className }: ShiftRadioProps) {
           <span
             className="
               relative inline-block
-              w-6 h-6 md:w-7 md:h-7           /* ขนาดรวม: ลดจากเดิม */
+              w-6 h-6 md:w-7 md:h-7
               rounded-full border-2 border-gray-400
-              peer-checked:border-emerald-700
-              transition
-
-              /* จุดด้านใน */
-              after:content-[''] after:absolute
-              after:inset-1                      /* ขนาดจุด = วง - 2*1px inset */
-              md:after:inset-[3px]               /* บน md ใหญ่ขึ้นนิด */
+              peer-checked:border-emerald-700 transition
+              after:content-[''] after:absolute after:inset-1 md:after:inset-[3px]
               after:rounded-full after:bg-emerald-700
-              after:scale-0 peer-checked:after:scale-100
-              after:transition-transform
+              after:scale-0 peer-checked:after:scale-100 after:transition-transform
             "
           />
 
@@ -82,6 +79,12 @@ export default function DateShiftFields({
   const startId = "offsite-start-date";
   const endId = "offsite-end-date";
 
+  // กันกรณี endShift เคยเป็น "ครึ่งบ่าย" ให้รีเซ็ตเป็นค่า valid
+  useEffect(() => {
+    const allowed = new Set(["ตลอดวัน", "ครึ่งเช้า"]);
+    if (!allowed.has(endShift)) onChangeEndShift("ตลอดวัน");
+  }, [endShift, onChangeEndShift]);
+
   return (
     <div className={`grid grid-cols-1 gap-6 ${className ?? ""}`}>
       {/* เริ่มต้น */}
@@ -95,11 +98,12 @@ export default function DateShiftFields({
             id={startId}
             type="date"
             className="h-9 w-[240px] rounded border border-gray-300 px-3 text-sm
-                       placeholder:text-gray-400 outline-none focus:ring-2  font-display
+                       placeholder:text-gray-400 outline-none focus:ring-2 font-display
                        focus:ring-emerald-600/30 focus:border-emerald-600"
             value={dateStart}
             onChange={(e) => onChangeDateStart(e.target.value)}
           />
+          {/* เริ่มต้น: มีครบสามตัวเลือก */}
           <ShiftRadio name="startShift" value={startShift} onChange={onChangeStartShift} />
         </div>
       </div>
@@ -120,7 +124,13 @@ export default function DateShiftFields({
             value={dateEnd}
             onChange={(e) => onChangeDateEnd(e.target.value)}
           />
-          <ShiftRadio name="endShift" value={endShift} onChange={onChangeEndShift} />
+          {/* สิ้นสุด: ตัด "ครึ่งบ่าย" ออก */}
+          <ShiftRadio
+            name="endShift"
+            value={endShift}
+            onChange={onChangeEndShift}
+            options={["ตลอดวัน", "ครึ่งเช้า"] as const}
+          />
         </div>
       </div>
     </div>

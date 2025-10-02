@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Folder, Search, Trash2 } from "lucide-react";
+import { Folder, FolderOpen, Search, Trash2 } from "lucide-react";
 
 type Row = {
   id: string;
@@ -133,7 +133,7 @@ export default function AttachmentSection({
         aria-label="อัปโหลดหรือวางไฟล์ที่นี่"
       >
         <div className="min-h-[220px] flex flex-col items-center justify-center text-emerald-700 select-none">
-          <Folder size={64} strokeWidth={1.75} />
+          <FolderOpen size={64} strokeWidth={1.75} />
           <div className="mt-3 text-base">อัปโหลด หรือลากวางไฟล์ของคุณที่นี่</div>
         </div>
         <input
