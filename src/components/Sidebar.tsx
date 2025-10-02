@@ -192,7 +192,7 @@ const SIDEBAR_BG = "#2b2e33";
 const CHILD_BG = "#0d0f12";
 
 const MENU: Section[] = [
-  { id: "home", label: "หน้าหลัก", icon: <Home size={18} />, to: "/" },
+  { id: "home", label: "หน้าหลัก", icon: <Home size={18} />, to: "/main" },
   { id: "me", label: "ข้อมูลส่วนตัว", icon: <UserCircle2 size={18} />, to: "/profile" },
   { id: "calendar", label: "ปฏิทินองค์กร", icon: <CalendarDays size={18} />, to: "/calendar" },
   { id: "org", label: "โครงสร้างองค์กร", icon: <Network size={18} />, to: "/org" },
