@@ -1,39 +1,45 @@
-// src/components/Topbar.tsx
 import { Menu } from "lucide-react";
 
 type TopbarProps = {
-  /** path รูปโลโก้ ใน public เช่น /hrm-logo.png */
-  logoSrc?: string;
+  collapsed: boolean;                 // <- ต้องรับสถานะหุบ/ขยาย
+  onToggleSidebar: () => void;
+  logoFull?: string;
+  logoIcon?: string;
 };
 
-export default function Topbar({ logoSrc = "/logo.png" }: TopbarProps) {
+export default function Topbar({
+  collapsed,
+  onToggleSidebar,
+  logoFull = "/logo-full.png",
+  logoIcon = "/logo-icon.png",
+}: TopbarProps) {
   return (
     <header className="h-14 w-full bg-white text-gray-900 border-b border-gray-200">
       <div className="h-full flex">
-        {/* โซนโลโก้ซ้าย: กว้างเท่ากับ sidebar (w-72 = 18rem) */}
-        <div className="h-full w-72 shrink-0 border-r border-gray-200 flex items-center px-4">
+        {/* Logo zone: ชิดซ้ายเมื่อไม่หุบ, กลางเมื่อหุบ */}
+        <div
+          className={`h-full shrink-0 border-r border-gray-200 flex items-center
+            transition-all duration-300
+            ${collapsed ? "w-16 justify-center" : "w-72 justify-start px-4"}`}
+        >
           <img
-            src={logoSrc}
+            src={collapsed ? logoIcon : logoFull}
             alt="HRM Finearts"
-            className="h-15 w-auto object-contain ml-0"
+            className={collapsed ? "h-8 w-8 object-contain" : "h-12 w-auto object-contain"}
           />
         </div>
 
-        {/* โซนเนื้อหาขวา: ปุ่มเมนู + โปรไฟล์ */}
+        {/* Right zone */}
         <div className="flex-1 flex items-center justify-between px-4">
-          <button className="p-2 rounded-md hover:bg-gray-100" aria-label="Toggle menu">
+          <button
+            className="p-2 rounded-md hover:bg-gray-100"
+            aria-label="Toggle menu"
+            onClick={onToggleSidebar}
+          >
             <Menu size={22} className="text-gray-600" />
           </button>
 
-          <div className="flex items-center gap-3">
-            {/* ถ้าต้องการข้อความยินดีต้อนรับ ให้ปลดคอมเมนต์บรรทัดล่างนี้ */}
-            {/* <span className="text-sm text-gray-600">ยินดีต้อนรับ</span> */}
-            <img
-              className="w-9 h-9 rounded-full"
-              src="https://i.pravatar.cc/40?img=13"
-              alt="user"
-            />
-          </div>
+          <img className="w-9 h-9 rounded-full" src="https://i.pravatar.cc/40?img=13" alt="user" />
         </div>
       </div>
     </header>

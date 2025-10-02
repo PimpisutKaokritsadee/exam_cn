@@ -1,6 +1,3 @@
-// src/pages/Main.tsx
-import PageBar from "../components/PageBar";
-
 export default function Main() {
   return (
     <>
