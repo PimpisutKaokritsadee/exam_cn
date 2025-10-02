@@ -116,7 +116,7 @@ export default function WorkplaceLocation() {
                         "
                     >
                         <div className="flex items-center gap-3 bg-white border rounded-full h-12 px-4 shadow-lg pointer-events-auto">
-                           <MapPin size={18} className="text-gray-500" />
+                           
                         <input
                             className="flex-1 outline-none text-sm font-display"
                             placeholder="ค้นหาสถานที่"
